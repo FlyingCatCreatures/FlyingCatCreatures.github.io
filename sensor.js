@@ -1,9 +1,9 @@
 class Sensor{
     constructor(car){
         this.car=car;
-        this.rayCount=31;
+        this.rayCount=50;
         this.rayLength=800;
-        this.raySpread=Math.PI*2
+        this.raySpread=Math.PI*0.75 
 
         this.rays=[];
         this.readings=[];
@@ -83,7 +83,14 @@ class Sensor{
                     Math.cos(rayAngle)*this.rayLength,
             };
             this.rays.push([start,end]);
-
+            /*let HardCodedAngles=[Math.PI*2];
+            for(let i=0;i<HardCodedAngles.length;i++){
+                this.rays.push([
+                    start,
+                    {x:(this.car.x-Math.sin(HardCodedAngles[i])*this.rayLength)+this.car.angle,
+                    y:(this.car.y-Math.cos(HardCodedAngles[i]*this.rayLength)+this.car.angle)}
+                ])
+            }*/
         } 
     }
 
